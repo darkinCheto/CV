@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Diana Jiménez Salvador</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="JS/content3.js"></script>
+</head>
+<body class="cover-letter-page">
+
+    <main class="container">
+        <article class="mx-auto" style="max-width:900px;">
+            <!-- Header handled by parent (Index.html). Removed local header to avoid duplication. -->
+
+            <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
+                <div class="card-body p-5 bg-white rounded-3">
+                    <form id="contact-form" novalidate>
+                        <div class="mb-4">
+                            <label for="name" class="form-label text-muted">Nombre *</label>
+                            <input type="text" id="name" name="name" class="form-control border-0 border-bottom" placeholder="Nombre" required>
+                            <div class="invalid-feedback">Por favor introduce tu nombre.</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="email" class="form-label text-muted">Email *</label>
+                            <input type="email" id="email" name="email" class="form-control border-0 border-bottom" placeholder="tu@ejemplo.com" required>
+                            <div class="invalid-feedback">Introduce un email válido.</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="message" class="form-label text-muted">Mensaje *</label>
+                            <textarea id="message" name="message" rows="6" class="form-control border-0 border-bottom" placeholder="Escribe tu mensaje" required></textarea>
+                            <div class="invalid-feedback">Escribe un mensaje.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-success w-100 py-3">ENVIAR</button>
+                        </div>
+
+                        <p class="small text-muted">Si el envío automático falla, se abrirá tu cliente de correo como alternativa.</p>
+                    </form>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Small inline script to ensure same-origin pages can post their height if JS file not loaded -->
+    <script>
+        function sendHeight() {
+            try {
+                var body = document.body, html = document.documentElement;
+                var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+                parent.postMessage({ type: 'contentHeight', height: height }, '*');
+            } catch (e) {}
+        }
+        window.addEventListener('load', sendHeight);
+        window.addEventListener('resize', sendHeight);
+        setTimeout(sendHeight, 300);
+    </script>
+</body>
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Studio | Formulario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/stylesCV.css">
+</head>
+<body class="app-shell">
+  <div class="background-orb orb-one"></div>
+  <div class="background-orb orb-two"></div>
+
+  <header class="topbar">
+    <div class="container-fluid px-4 px-lg-5 py-3">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+        <div>
+          <span class="eyebrow">Formulario CV</span>
+          <h1 class="site-title mb-0">CV Studio</h1>
+        </div>
+        <div class="topbar-note">
+          Rellena el formulario, genera tu CV en HTML y descárgalo como PDF.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container-fluid px-4 px-lg-5 pb-5">
+    <div class="page-stack d-grid gap-4 gap-lg-5">
+      <section class="hero-card card-panel p-4 p-lg-5">
+        <div class="hero-grid">
+          <div>
+            <span class="section-badge mb-3">Diseño profesional</span>
+            <h2 class="hero-title">Construye un CV moderno y listo para exportar.</h2>
+            <p class="hero-text">
+              Este formulario separa cada bloque de información para generar una vista HTML limpia, elegante y preparada para PDF.
+            </p>
+            <div class="feature-grid mt-4">
+              <div class="feature-item">
+                <strong>HTML limpio</strong>
+                <span>Vista previa estructurada para impresion.</span>
+              </div>
+              <div class="feature-item">
+                <strong>Bootstrap + jQuery</strong>
+                <span>Interfaz responsive con campos dinamicos.</span>
+              </div>
+              <div class="feature-item">
+                <strong>PDF directo</strong>
+                <span>Exportacion desde el CV renderizado.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-mockup card-panel-soft">
+            <div class="hero-mockup-header">
+              <span class="section-badge">Mockup</span>
+              <button type="button" id="fillDemoData" class="btn btn-primary btn-sm">Completar con ejemplo</button>
+            </div>
+            <div class="mockup-avatar">
+              <img id="mockupAvatarImg" src="../Document/Andrea_CV_Prueba.jpg" alt="Foto de perfil" />
+            </div>
+            <div class="mockup-name">Andrea López</div>
+            <div class="mockup-role">Product Designer</div>
+            <div class="mockup-summary">
+              Perfil orientado a la experiencia de usuario, diseño visual y prototipado rápido.
+            </div>
+            <div class="mockup-list">
+              <span>Email · andrea@demo.com</span>
+              <span>Madrid, España</span>
+              <span>https://andrealopez.dev</span>
+            </div>
+            <div class="mockup-tags">
+              <span class="level-chip level-alto">Figma</span>
+              <span class="level-chip level-alto">UX</span>
+              <span class="level-chip level-medio">HTML</span>
+              <span class="level-chip level-alto">Inglés</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card-panel p-4 p-lg-5">
+        <form id="cvForm" autocomplete="on" novalidate>
+          <div class="section-head mb-4">
+            <div>
+              <span class="section-badge">Datos personales</span>
+              <h3 class="section-title mt-2">Información principal</h3>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-12">
+              <label class="form-label" for="profilePhoto">Foto de perfil</label>
+              <div class="photo-upload-panel">
+                <div class="photo-preview" id="photoPreview"><span>CV</span></div>
+                <div class="photo-upload-content">
+                  <input id="profilePhoto" name="profilePhoto" type="file" class="form-control" accept="image/*">
+                  <div class="form-help">Sube una foto clara y profesional. Se guardara en el CV generado.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="fullName">Nombre completo <span class="required-mark" aria-hidden="true">*</span></label>
+              <input id="fullName" name="fullName" type="text" class="form-control form-control-lg" placeholder="Ej: Andrea López" required>
+              <div class="invalid-feedback">El nombre completo es obligatorio.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="jobTitle">Titulo profesional <span class="required-mark" aria-hidden="true">*</span></label>
+              <input id="jobTitle" name="jobTitle" type="text" class="form-control form-control-lg" placeholder="Ej: Product Designer" required>
+              <div class="invalid-feedback">El título profesional es obligatorio.</div>
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="summary">Perfil profesional <span class="required-mark" aria-hidden="true">*</span></label>
+              <textarea id="summary" name="summary" class="form-control" rows="4" placeholder="Resume tu experiencia, enfoque y valor profesional" required></textarea>
+              <div class="invalid-feedback">El perfil profesional es obligatorio.</div>
+            </div>
+          </div>
+
+          <div class="section-head mb-3">
+            <div>
+              <span class="section-badge">Contacto</span>
+              <h3 class="section-title mt-2">Datos de localización</h3>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-md-6 col-lg-4">
+              <label class="form-label" for="email">Email <span class="required-mark" aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" class="form-control" placeholder="correo@dominio.com" required>
+              <div class="invalid-feedback">Introduce un correo electrónico válido.</div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <label class="form-label" for="phone">Teléfono <span class="required-mark" aria-hidden="true">*</span></label>
+              <input id="phone" name="phone" type="tel" class="form-control" placeholder="600000000" inputmode="numeric" pattern="[0-9]+" required>
+              <div class="invalid-feedback">El teléfono es obligatorio y solo puede contener números.</div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <label class="form-label" for="location">Ciudad <span class="required-mark" aria-hidden="true">*</span></label>
+              <input id="location" name="location" type="text" class="form-control" placeholder="Zaragoza, España" required>
+              <div class="invalid-feedback">La ciudad es obligatoria.</div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <label class="form-label" for="website">Portafolio / Web</label>
+              <input id="website" name="website" type="url" class="form-control" placeholder="https://tuweb.com">
+              <div class="invalid-feedback">Introduce una web válida que empiece por https://.</div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <label class="form-label" for="linkedin">LinkedIn</label>
+              <input id="linkedin" name="linkedin" type="url" class="form-control" placeholder="https://linkedin.com/in/tu-perfil" pattern="https://.*">
+              <div class="invalid-feedback">Introduce un enlace válido que empiece por https://.</div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <label class="form-label" for="github">GitHub</label>
+              <input id="github" name="github" type="url" class="form-control" placeholder="https://github.com/tuusuario" pattern="https://.*">
+              <div class="invalid-feedback">Introduce un enlace valido que empiece por https://.</div>
+            </div>
+          </div>
+
+          <div class="section-head mb-3">
+            <div>
+              <span class="section-badge">Competencias</span>
+              <h3 class="section-title mt-2">Habilidades e idiomas</h3>
+            </div>
+          </div>
+
+          <div class="section-head mb-3">
+            <div>
+              <span class="section-badge">Habilidades</span>
+              <h3 class="section-title mt-2">Agrega habilidades con nivel <span class="required-mark" aria-hidden="true">*</span></h3>
+            </div>
+          </div>
+          <div class="compact-manager mb-4" id="skillManager">
+            <div class="compact-editor card-panel-soft">
+              <div class="compact-editor-title">Editor de habilidades</div>
+              <div class="row g-3 align-items-end">
+                <div class="col-lg-7">
+                  <label class="form-label" for="skillName">Habilidad <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="skillName" type="text" class="form-control" placeholder="Ej: UX/UI, HTML, Figma">
+                </div>
+                <div class="col-lg-3">
+                  <label class="form-label" for="skillLevel">Nivel <span class="required-mark" aria-hidden="true">*</span></label>
+                  <select id="skillLevel" class="form-select">
+                    <option value="">Selecciona nivel</option>
+                    <option value="Bajo">Bajo</option>
+                    <option value="Medio">Medio</option>
+                    <option value="Alto">Alto</option>
+                  </select>
+                </div>
+                <div class="col-lg-2 d-grid">
+                  <button type="button" class="btn btn-primary" id="saveSkill">Guardar</button>
+                </div>
+              </div>
+              <div class="invalid-feedback d-block d-none" id="skillFormError">Completa habilidad y nivel antes de guardar.</div>
+            </div>
+            <div class="table-responsive compact-table-wrap mt-3">
+              <table class="table compact-table mb-0">
+                <thead>
+                  <tr>
+                    <th>Habilidad</th>
+                    <th>Nivel</th>
+                    <th class="text-end">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="skillTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="section-head mb-3">
+            <div>
+              <span class="section-badge">Idiomas</span>
+              <h3 class="section-title mt-2">Agrega idiomas con nivel <span class="required-mark" aria-hidden="true">*</span></h3>
+            </div>
+          </div>
+          <div class="compact-manager mb-4" id="languageManager">
+            <div class="compact-editor card-panel-soft">
+              <div class="compact-editor-title">Editor de idiomas</div>
+              <div class="row g-3 align-items-end">
+                <div class="col-lg-7">
+                  <label class="form-label" for="languageName">Idioma <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="languageName" type="text" class="form-control" placeholder="Ej: Ingles, Frances">
+                </div>
+                <div class="col-lg-3">
+                  <label class="form-label" for="languageLevel">Nivel <span class="required-mark" aria-hidden="true">*</span></label>
+                  <select id="languageLevel" class="form-select">
+                    <option value="">Selecciona nivel</option>
+                    <option value="Bajo">Bajo</option>
+                    <option value="Medio">Medio</option>
+                    <option value="Alto">Alto</option>
+                  </select>
+                </div>
+                <div class="col-lg-2 d-grid">
+                  <button type="button" class="btn btn-primary" id="saveLanguage">Guardar</button>
+                </div>
+              </div>
+              <div class="invalid-feedback d-block d-none" id="languageFormError">Completa idioma y nivel antes de guardar.</div>
+            </div>
+            <div class="table-responsive compact-table-wrap mt-3">
+              <table class="table compact-table mb-0">
+                <thead>
+                  <tr>
+                    <th>Idioma</th>
+                    <th>Nivel</th>
+                    <th class="text-end">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="languageTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="section-head mb-3">
+            <div>
+              <span class="section-badge">Experiencia</span>
+              <h3 class="section-title mt-2">Trayectoria profesional <span class="required-mark" aria-hidden="true">*</span></h3>
+            </div>
+          </div>
+          <div class="compact-manager mb-4" id="experienceManager">
+            <div class="compact-editor card-panel-soft">
+              <div class="compact-editor-title">Editor de experiencia</div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="experienceCompany">Empresa <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="experienceCompany" type="text" class="form-control" placeholder="Empresa o cliente">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="experienceRole">Cargo <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="experienceRole" type="text" class="form-control" placeholder="Cargo desempenado">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="experiencePeriod">Periodo <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="experiencePeriod" type="text" class="form-control" placeholder="2022 - Actualidad">
+                </div>
+                <div class="col-md-8">
+                  <label class="form-label" for="experienceLocation">Ubicacion</label>
+                  <input id="experienceLocation" type="text" class="form-control" placeholder="Ciudad / remoto">
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="experienceAchievements">Logros <span class="required-mark" aria-hidden="true">*</span></label>
+                  <textarea id="experienceAchievements" class="form-control" rows="3" placeholder="Describe impactos, logros y responsabilidades"></textarea>
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                  <button type="button" class="btn btn-primary" id="saveExperience">Guardar</button>
+                </div>
+              </div>
+              <div class="invalid-feedback d-block d-none" id="experienceFormError">Completa los campos obligatorios antes de guardar.</div>
+            </div>
+            <div class="table-responsive compact-table-wrap mt-3">
+              <table class="table compact-table mb-0">
+                <thead>
+                  <tr>
+                    <th>Experiencia</th>
+                    <th>Periodo</th>
+                    <th>Resumen</th>
+                    <th class="text-end">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="experienceTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="section-head mb-3">
+            <div>
+              <span class="section-badge">Formación</span>
+              <h3 class="section-title mt-2">Educación <span class="required-mark" aria-hidden="true">*</span></h3>
+            </div>
+          </div>
+          <div class="compact-manager mb-4" id="educationManager">
+            <div class="compact-editor card-panel-soft">
+              <div class="compact-editor-title">Editor de educacion</div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="educationInstitution">Institucion <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="educationInstitution" type="text" class="form-control" placeholder="Universidad o centro">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="educationDegree">Titulo <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="educationDegree" type="text" class="form-control" placeholder="Grado, master o curso">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="educationPeriod">Periodo <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="educationPeriod" type="text" class="form-control" placeholder="2018 - 2022">
+                </div>
+                <div class="col-md-8">
+                  <label class="form-label" for="educationDetails">Detalle</label>
+                  <input id="educationDetails" type="text" class="form-control" placeholder="Honores, enfoque o especialidad">
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                  <button type="button" class="btn btn-primary" id="saveEducation">Guardar</button>
+                </div>
+              </div>
+              <div class="invalid-feedback d-block d-none" id="educationFormError">Completa los campos obligatorios antes de guardar.</div>
+            </div>
+            <div class="table-responsive compact-table-wrap mt-3">
+              <table class="table compact-table mb-0">
+                <thead>
+                  <tr>
+                    <th>Educacion</th>
+                    <th>Periodo</th>
+                    <th>Detalle</th>
+                    <th class="text-end">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="educationTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="section-head mb-3">
+            <div>
+              <span class="section-badge">Proyectos</span>
+              <h3 class="section-title mt-2">Proyectos destacados <span class="required-mark" aria-hidden="true">*</span></h3>
+            </div>
+          </div>
+          <div class="compact-manager mb-4" id="projectManager">
+            <div class="compact-editor card-panel-soft">
+              <div class="compact-editor-title">Editor de proyectos</div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="projectName">Proyecto <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="projectName" type="text" class="form-control" placeholder="Nombre del proyecto">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="projectTech">Tecnologias <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="projectTech" type="text" class="form-control" placeholder="React, Bootstrap, Node">
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="projectDescription">Descripcion <span class="required-mark" aria-hidden="true">*</span></label>
+                  <textarea id="projectDescription" class="form-control" rows="3" placeholder="Objetivo, resultado y valor del proyecto"></textarea>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="projectLink">Enlace</label>
+                  <input id="projectLink" type="url" class="form-control" placeholder="https://proyecto.com">
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                  <button type="button" class="btn btn-primary" id="saveProject">Guardar</button>
+                </div>
+              </div>
+              <div class="invalid-feedback d-block d-none" id="projectFormError">Completa los campos obligatorios antes de guardar.</div>
+            </div>
+            <div class="table-responsive compact-table-wrap mt-3">
+              <table class="table compact-table mb-0">
+                <thead>
+                  <tr>
+                    <th>Proyecto</th>
+                    <th>Tecnologias</th>
+                    <th>Resumen</th>
+                    <th class="text-end">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="projectTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="section-head mb-3">
+            <div>
+              <span class="section-badge">Certificaciones</span>
+              <h3 class="section-title mt-2">Cursos y acreditaciones <span class="required-mark" aria-hidden="true">*</span></h3>
+            </div>
+          </div>
+          <div class="compact-manager mb-4" id="certificationManager">
+            <div class="compact-editor card-panel-soft">
+              <div class="compact-editor-title">Editor de certificaciones</div>
+              <div class="row g-3">
+                <div class="col-md-5">
+                  <label class="form-label" for="certificationName">Certificacion <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="certificationName" type="text" class="form-control" placeholder="Nombre de la certificacion">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="certificationIssuer">Entidad <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="certificationIssuer" type="text" class="form-control" placeholder="Entidad emisora">
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label" for="certificationDate">Fecha <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="certificationDate" type="text" class="form-control" placeholder="2025">
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="certificationDetails">Detalle</label>
+                  <input id="certificationDetails" type="text" class="form-control" placeholder="Numero de licencia, enfoque o resultado">
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                  <button type="button" class="btn btn-primary" id="saveCertification">Guardar</button>
+                </div>
+              </div>
+              <div class="invalid-feedback d-block d-none" id="certificationFormError">Completa los campos obligatorios antes de guardar.</div>
+            </div>
+            <div class="table-responsive compact-table-wrap mt-3">
+              <table class="table compact-table mb-0">
+                <thead>
+                  <tr>
+                    <th>Certificacion</th>
+                    <th>Entidad</th>
+                    <th>Fecha</th>
+                    <th class="text-end">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="certificationTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="section-head mb-3">
+            <div>
+              <span class="section-badge">Referencias</span>
+              <h3 class="section-title mt-2">Contactos de recomendacion <span class="required-mark" aria-hidden="true">*</span></h3>
+            </div>
+          </div>
+          <div class="compact-manager mb-4" id="referenceManager">
+            <div class="compact-editor card-panel-soft">
+              <div class="compact-editor-title">Editor de referencias</div>
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label class="form-label" for="referenceName">Nombre <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="referenceName" type="text" class="form-control" placeholder="Persona de referencia">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="referenceRole">Cargo <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="referenceRole" type="text" class="form-control" placeholder="Puesto o relacion">
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label" for="referenceContact">Telefono / Email <span class="required-mark" aria-hidden="true">*</span></label>
+                  <input id="referenceContact" type="text" class="form-control" placeholder="+34... o correo@dominio.com">
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="referenceCompany">Empresa</label>
+                  <input id="referenceCompany" type="text" class="form-control" placeholder="Empresa actual o anterior">
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                  <button type="button" class="btn btn-primary" id="saveReference">Guardar</button>
+                </div>
+              </div>
+              <div class="invalid-feedback d-block d-none" id="referenceFormError">Completa los campos obligatorios antes de guardar.</div>
+            </div>
+            <div class="table-responsive compact-table-wrap mt-3">
+              <table class="table compact-table mb-0">
+                <thead>
+                  <tr>
+                    <th>Referencia</th>
+                    <th>Contacto</th>
+                    <th>Empresa</th>
+                    <th class="text-end">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="referenceTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column flex-md-row gap-3 justify-content-end mt-4">
+            <button type="reset" class="btn btn-ghost px-4">Limpiar</button>
+            <button type="submit" class="btn btn-primary btn-lg px-4">Generar PDF</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/form.js"></script>
+</body>
+</html>
