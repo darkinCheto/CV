@@ -1,6 +1,6 @@
 /* Fondo del encabezado */
 .header-bg {
-    background: url('../img/bg-circuito.jpg') no-repeat center center;
+    background: url('../IMG/bg-circuito.jpg') no-repeat center center;
     background-size: cover;
     
     position: relative;
