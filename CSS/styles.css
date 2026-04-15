@@ -362,6 +362,71 @@ img.rounded-circle {
     color: #2a2a2a !important;
 }
 
+.cover-letter-page .card-body .btn-primary {
+    background-color: #0f2f45;
+    border-color: #0f2f45;
+}
+
+.cover-letter-page .card-body .btn-primary:hover {
+    background-color: #214f72;
+    border-color: #214f72;
+}
+
+.cover-letter-page iframe {
+    background: #ffffff;
+    border-radius: 8px;
+}
+
+.about-header,
+.about-header-overlay {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    border-radius: 24px;
+    background: rgba(6, 18, 38, 0.68);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(10px);
+}
+
+.about-header h3 {
+    font-size: 2rem;
+    line-height: 1.1;
+}
+
+.about-header-text {
+    max-width: 72ch;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.project-card {
+    background: #ffffff;
+    border: 1px solid rgba(16, 26, 25, 0.08);
+    border-radius: 18px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+.project-card img {
+    border-radius: 14px;
+}
+
+.project-card a {
+    color: #0f2f45;
+    font-weight: 700;
+}
+
+.project-card a:hover {
+    color: #fda700;
+}
+
+.project-card p,
+.project-card .text-muted {
+    line-height: 1.6;
+}
+
 /* Transición suave al cambiar la altura del iframe principal */
 #main-content {
     transition: height 300ms ease;
